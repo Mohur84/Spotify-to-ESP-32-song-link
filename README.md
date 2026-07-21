@@ -20,7 +20,7 @@ In Arduino IDE → Tools → Manage Libraries, install:
 - Adafruit GFX
 - (ESP32 board package must already be installed, via Boards Manager, for `WiFi.h`/`WebServer.h`)
 
-## Step 3: Edit and upload `spotify_oled.ino`
+## Step 3: Edit and upload `spotify_oled_arduino.ino`
 
 Open the file and change:
 ```cpp
