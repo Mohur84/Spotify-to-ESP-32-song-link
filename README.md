@@ -86,13 +86,13 @@ Open Spotify on any device logged into your account (phone, desktop, web player)
 Spotify App
     │
     ▼
-Spotify Web API  ──(polled every 1s)──▶  spotify_display.py (your PC)
+Spotify Web API  ──(polled every 1s)──▶  spotify_display_sync.py (your PC)
                                               │
                                               │ HTTP POST /update
                                               │ title, artist, duration,
                                               │ progress, playing
                                               ▼
-                                          spotify_oled.ino (ESP32)
+                                          spotify_oled_arduino.ino (ESP32)
                                               │
                                               ▼
                                           OLED Display
@@ -106,7 +106,7 @@ Spotify Web API  ──(polled every 1s)──▶  spotify_display.py (your PC)
 
 - **OLED stays blank**: check wiring, and try I2C address `0x3D` instead of `0x3C`.
 - **ESP32 never gets an IP**: double-check SSID/password; ESP32 only supports 2.4GHz Wi-Fi, not 5GHz networks.
-- **Python script can't reach the ESP32**: make sure your PC and ESP32 are on the same Wi-Fi network, and that the IP in `spotify_display.py` matches what the Serial Monitor printed (it can change if your router reassigns it — consider setting a DHCP reservation for the ESP32 in your router settings).
+- **Python script can't reach the ESP32**: make sure your PC and ESP32 are on the same Wi-Fi network, and that the IP in `spotify_display_sync.py` matches what the Serial Monitor printed (it can change if your router reassigns it — consider setting a DHCP reservation for the ESP32 in your router settings).
 - **`current_playback()` returns None**: nothing is actively playing on any device logged into that Spotify account, or the account doesn't have the right permissions (Spotify's `currently-playing` endpoints work for both Free and Premium accounts for *reading* state).
 - **Auth fails / redirect URI mismatch**: the `REDIRECT_URI` in your Python script must match, character-for-character, what's registered in the Spotify Dashboard.
 
