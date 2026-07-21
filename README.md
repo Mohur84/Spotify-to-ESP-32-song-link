@@ -52,7 +52,7 @@ If the OLED shows nothing, try changing `SCREEN_ADDRESS` from `0x3C` to `0x3D` i
 pip install spotipy requests
 ```
 
-## Step 6: Edit `spotify_display.py`
+## Step 6: Edit `spotify_display_sync.py`
 
 Fill in:
 ```python
